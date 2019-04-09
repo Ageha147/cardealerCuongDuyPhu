@@ -21,6 +21,7 @@ namespace WebBanXe
         {
             Session["userid"] = null;
             Session["UserName"] = null;
+            Session["AdminName"] = null;
         }
     }
 }

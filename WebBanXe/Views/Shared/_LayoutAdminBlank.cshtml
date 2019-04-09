@@ -81,9 +81,15 @@
                             <img class="nav-user-photo" src="~/Content/assets/images/avatars/user.jpg" alt="Jason's Photo" />
                             <span class="user-info">
                                 <small>Welcome,</small>
-                                Cường
+                                @{
+                                    var adtext = string.Empty;
+                                    if (Session["AdminName"] != null)
+                                    {
+                                        adtext = Session["AdminName"].ToString();
+                                    }
+                                }
+                                @adtext.Split(' ').Last()
                             </span>
-
                             <i class="ace-icon fa fa-caret-down"></i>
                         </a>
 
@@ -96,7 +102,7 @@
                             </li>
 
                             <li>
-                                <a href="profile.html">
+                                <a href="#">
                                     <i class="ace-icon fa fa-user"></i>
                                     Thông tin cá nhân
                                 </a>

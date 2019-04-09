@@ -45,6 +45,7 @@ namespace WebBanXe.Controllers
                 if (ad != null)
                 {
                     Session["userid"] = ad;
+                    Session["AdminName"] = ad.Ten.ToString();                   
                     return RedirectToAction("Index", "Admin");
                 }
                 else

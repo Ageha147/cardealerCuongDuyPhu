@@ -86,3 +86,4 @@ D:\Documents\2019_HKII_LTWEB\DoAn\WebBanXe\bin\Microsoft.AI.ServerTelemetryChann
 D:\Documents\2019_HKII_LTWEB\DoAn\WebBanXe\bin\Microsoft.AI.Web.xml
 D:\Documents\2019_HKII_LTWEB\DoAn\WebBanXe\bin\Microsoft.AI.WindowsServer.xml
 D:\Documents\2019_HKII_LTWEB\DoAn\WebBanXe\bin\Microsoft.ApplicationInsights.xml
+D:\Documents\2019_HKII_LTWEB\DoAn\WebBanXe\obj\Debug\WebBanXe.csprojResolveAssemblyReference.cache

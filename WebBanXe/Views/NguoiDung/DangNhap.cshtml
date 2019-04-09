@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "DangNhap";
+    Layout = "~/Views/Shared/_LayoutRegisterLoginPage.cshtml";
+}
+
+<div style="margin-left: 250px; margin-right: 250px; border: none">
+    <div class="form-heading">
+        <h3>Đăng nhập ngay</h3>
+    </div><!--/ .form-heading-->
+
+    <div class="form-entry">
+        <h5 class="wrong">@ViewBag.ThongBao</h5>
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)
+            <p>
+                <label>Tài khoản:</label>
+                @Html.TextBox("TaiKhoanKhachHang")
+            </p>
+            <p class="wrong">@ViewData["Error1"]</p>
+            <p>
+                <label>Mật khẩu:</label>
+                @Html.Password("MatKhauKhachHang")
+            </p>
+            <p class="wrong">@ViewData["Error2"]</p>
+            <p><label class="rememberme"><input type="checkbox" />Lưu mật khẩu</label></p>
+            <p>
+                <input class="button orange" type="submit" value="Đăng Nhập" />
+                <a href="@Url.Action("DangKy","NguoiDung")" class="button orange" style="float: right;">Tạo Một Tài Khoản</a>
+            </p>
+        }
+    </div>
+</div>

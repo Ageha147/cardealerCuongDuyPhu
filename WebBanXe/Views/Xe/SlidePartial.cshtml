@@ -1,0 +1,29 @@
+﻿<div id="slider" class="flexslider clearfix">
+
+    <ul class="slides">
+
+        @foreach (var item in Model)
+        {
+            <li>
+                <img src="~/images/temp/@item.AnhBia" alt="" width="660" height="400">
+
+                <div class="caption">
+                    <div class="caption-entry">
+
+                        <dl class="auto-detailed clearfix">
+                            <dt><span class="model">@item.TenHang</span></dt>
+                            <dd class="media-hidden"><b>@item.ThongTinBaoHanh</b></dd>
+                            <dd class="media-hidden"><b>36000 Miles</b></dd>
+                            <dd><span class="heading">$@item.Gia</span></dd>
+                        </dl><!--/ .auto-detailed-->
+
+                        <a href="@Url.Action("Details","Xe",new{ id = @item.MaThan })" class="button orange">Chi tiết &raquo;</a>
+
+                    </div><!--/ .caption-entry-->
+                </div><!--/ .caption-->
+            </li>
+        }
+        
+    </ul><!--/ .slides-->
+
+</div>

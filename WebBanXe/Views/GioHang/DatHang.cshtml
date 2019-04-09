@@ -1,0 +1,93 @@
+﻿@using WebBanXe.Models
+@model List<giohang>
+@{
+    ViewBag.Title = "DatHang";
+    Layout = "~/Views/Shared/_LayoutClearPage.cshtml";
+}
+
+<h2 style="text-align:center">THÔNG TIN HÀNG</h2>
+<table align="center" border="1" style="margin-left: 100px">
+    <tr style="text-align: center; font-weight: bold; background-color: orangered; color: aqua; height: 30px; font-size: 15px;" class="cart-items">
+        <td class="cart-title" width="100">Tên Xe</td>
+        <td class="cart-title" width="220">Ảnh bìa</td>
+        <td class="cart-title" width="100">Số Lượng</td>
+        <td class="cart-title" width="150">Đơn Giá</td>
+        <td class="cart-title" width="150">Thành Tiền</td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr style="text-align: center; font-weight: bold; font-size: 14px">
+            <td>@item.tTenHang</td>
+            <td class="cart-items"> <img height="100" width="150" src="~/images/temp/@item.tAnhBia" /></td>
+            @using (Html.BeginForm("CapNhatGioHang", "GioHang", new { @tMaSP = item.tMaHang }))
+            {
+                <td>
+                    @item.tSoLuong
+                </td>
+                <td>@String.Format("{0:0,0}", item.tDonGia)</td>
+                <td>@String.Format("{0:0,0}", item.tThanhTien)</td>
+            }
+        </tr>
+    }
+    <tr style="font-weight:bold; text-align:right; color:red; font-size: 14px">
+        <td colspan="3">Số lượng: @ViewBag.TongSoLuong</td>
+        <td colspan="3">Tổng tiền: $@String.Format("{0:0,0}", ViewBag.TongTien)</td>
+    </tr>
+    <tr style="font-weight:bold; color:blue; text-align:right; font-size: 14px">
+        <td colspan="9">
+            @Html.ActionLink("Trở về giỏ hàng", "GioHang", "GioHang")
+        </td>
+    </tr>
+</table>
+
+<br />
+<br />
+<br />
+
+<h2 style="text-align:center">THÔNG TIN ĐẶT HÀNG</h2>
+<br />
+@{
+    KHACHHANG kh = (KHACHHANG)Session["TaiKhoanKhachHang"];
+}
+<table align="center" style="margin: 0 auto" border="1">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <tr style="height:40px; font-size: 13px; font-weight: bold">
+            <td> Họ tên khách hàng: </td>
+            <td style="margin-left: 2px">
+                @kh.TenKhachHang
+            </td>
+        </tr>
+        <tr style="height:40px; font-size: 13px; font-weight: bold">
+            <td > Địa chỉ: </td>
+            <td style="margin-left: 2px">
+                @kh.DiaChi
+            </td>
+        </tr>
+        <tr style="height:40px; font-size: 13px; font-weight: bold">
+            <td> Điện thoại: </td>
+            <td style="margin-left: 2px">
+                @kh.DienThoai
+            </td>
+        </tr>
+        <tr style="height:40px; font-size: 13px; font-weight: bold">
+            <td> Ngày đặt: </td>
+            <td style="margin-left: 2px">
+                @DateTime.Now.ToShortDateString()
+            </td>
+        </tr>
+        <tr style="height:40px; font-size: 13px; font-weight: bold">
+            <td> Ngày giao hàng: </td>
+            <td style="margin-left: 2px">
+                <input type="date" name="NgayGiao" />
+            </td>
+        </tr>
+        <tr style="height:40px; font-size: 13px; font-weight: bold">
+            <td></td>
+            <td>
+                <input type="submit" value="Đồng ý đặt hàng" />
+            </td>
+        </tr>
+    }
+</table>

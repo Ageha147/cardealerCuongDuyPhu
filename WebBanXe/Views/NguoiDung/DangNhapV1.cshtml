@@ -1,0 +1,21 @@
+﻿<div class="form-entry">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <p>
+            <label>Tài khoản:</label>
+            @Html.TextBox("TaiKhoanKhachHang")
+        </p>
+        <p>
+            <label>Mật khẩu:</label>
+            @Html.Password("MatKhauKhachHang")
+        </p>
+        <p class="forgot-pass">
+            <a href="#">Quên mật khẩu?</a>
+        </p>
+        <p>
+            <input class="button dark enter-btn" type="submit" value="Đăng Nhập" />
+            <a href="@Url.Action("DangKy","NguoiDung")" class="button dark enter-btn">Tạo một tài khoản</a>
+        </p>
+    }
+</div>

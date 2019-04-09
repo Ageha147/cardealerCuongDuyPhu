@@ -1,0 +1,54 @@
+﻿@using WebBanXe.Models
+@model List<giohang>
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Shared/_LayoutClearPage.cshtml";
+}
+<table align="center" border="1" class="table table-condensed cart-content">
+    <tr style="text-align: center; font-weight: bold; background-color: orangered; color: aqua; height: 30px; font-size: 15px;" class="cart-items">
+        <td class="cart-title" width="100">Tên Xe</td>
+        <td class="cart-title" width="220">Ảnh bìa</td>
+        <td class="cart-title" width="100">Số Lượng</td>
+        <td class="cart-title" width="150">Đơn Giá</td>
+        <td class="cart-title" width="150">Thành Tiền</td>
+        <td class="cart-title" width="150"></td>
+        <td class="cart-title"></td>
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr style="text-align: center; font-weight: bold; border: solid; border-width: 1px; font-size: 14px" >
+            <td class="cart-items" style="border-left: 1px solid">@item.tTenHang</td>
+            <td class="cart-items" style="border-left: 1px solid"> <img height="100" width="150" src="~/images/temp/@item.tAnhBia" /></td>
+            @using (Html.BeginForm("CapNhatGioHang", "GioHang", new { @tMaHang = item.tMaHang }))
+            {
+                <td class="cart-items" style="border-left: 1px solid">
+                    <input style="height: 20px; width: 33px" type="number" min="1" name="txtSoLuong" value="@item.tSoLuong" class="clearfix" />
+                </td>
+                <td class="cart-items" style="border-left: 1px solid">@string.Format("{0:0,0}", @item.tDonGia)</td>
+                <td class="cart-items" style="border-left: 1px solid">@string.Format("{0:0,0}", @item.tThanhTien)</td>
+                <td class="cart-items" style="border-left: 1px solid">
+                    <a href="@Url.Action("XoaGioHang","GioHang",new { @tMaHang = item.tMaHang})">
+                    <input type="button" class="button orange" value="Xóa" />
+                    </a>                                 
+                </td>
+                <td class="cart-items" style="border-right: solid; border-width: 1px;">
+                    <input type="submit" class="button orange" value="Cập nhật"/>
+                </td>
+            }
+        </tr>
+    }
+    <tr style="font-weight: bold; text-align: right; color: red; border: solid; border-width: 1px; font-size: 14px">
+        <td colspan="3"> Số lượng xe: @ViewBag.TongSoLuong</td>
+        <td colspan="5" style="border-right: 1px solid"> Tổng tiền: @string.Format("{0:0,0}", @ViewBag.TongTien) $</td>
+    </tr>
+    <tr>
+        <td colspan="9" align="center" style="border: 1px solid;">
+            @Html.ActionLink("XÓA TẤT CẢ", "XoaTatCaGioHang", "GioHang")
+        </td>
+    </tr>
+    <tr>
+        <td colspan="9" align="center" style="border: 1px solid;">
+            @Html.ActionLink("ĐẶT HÀNG", "DatHang", "GioHang")
+        </td>
+    </tr>
+</table>

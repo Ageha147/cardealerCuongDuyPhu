@@ -1,0 +1,105 @@
+﻿@model WebBanXe.Models.MATHANG
+
+@{
+    ViewBag.Title = "ChiTietHang";
+    Layout = "~/Views/Shared/_LayoutAdminBlank.cshtml";
+}
+
+<div>
+    <h4>MATHANG</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenHang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenHang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NhaSanXuat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NhaSanXuat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnhBia)
+        </dt>
+
+        <dd>
+            <img height="100" width="130" src="@Url.Content("~/images/temp/" + Model.AnhBia)" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoLuong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThongTinBaoHanh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThongTinBaoHanh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayCapNhat)
+        </dt>
+
+        <dd>
+            @string.Format("{0:dd/MM/yyyy}", Model.NgayCapNhat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaLoai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LOAIHANG.TenLoai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaThan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LOAITHAN.TenThan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DonViTinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DonViTinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MoTa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MoTa)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "SuaHang", new { id = Model.MaHang }) |
+    @Html.ActionLink("Về trang quản lí hàng", "Xe")|
+</p>

@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "DangKy";
+    Layout = "~/Views/Shared/_LayoutRegisterLoginPage.cshtml";
+}
+
+<div class="form-heading">
+    <h3>Đăng ký ngay</h3>
+</div><!--/ .form-heading-->
+
+<div class="form-entry">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <p>
+            <label>Họ tên:</label>
+            @Html.TextBox("TenKhachHang")
+        </p>
+        <p class="wrong">@ViewData["Error1"]</p>
+            <p>
+                <label>Tài khoản:</label>
+                @Html.TextBox("TaiKhoanKhachHang")
+            </p>
+            <p class="wrong">@ViewData["Error2"]</p>
+            <p>
+                <label>Mật khẩu:</label>
+                @Html.Password("MatKhauKhachHang")
+            </p>
+            <p class="wrong">@ViewData["Error3"]</p>
+            <p>
+                <label>Nhập lại mật khẩu:</label>
+                @Html.Password("MatKhauNhapLai")
+            </p>
+            <p class="wrong">@ViewData["Error4"]</p>
+            <p>
+                <label>Ngày sinh:</label>
+                <input type="date" name="NgaySinh" />
+            </p>
+            <p class="wrong">@ViewData["Error5"]</p>
+            <p>
+                <label>Địa chỉ:</label>
+                @Html.TextBox("DiaChi")
+            </p>
+            <p class="wrong">@ViewData["Error6"]</p>
+            <p>
+                <label>Điện thoại:</label>
+                @Html.TextBox("DienThoai")
+            </p>
+            <p class="wrong">@ViewData["Error7"]</p>
+            <p>
+                <label>Email:</label>
+                @Html.TextBox("Email")
+            </p>
+            <p class="wrong">@ViewData["Error8"]</p>
+            <p>
+                <input class="button orange" type="submit" value="Đăng Ký" />              
+            </p>
+            <p>
+                @Html.ActionLink("Đã có tài khoản?", "DangNhap")
+            </p>
+    }
+</div>

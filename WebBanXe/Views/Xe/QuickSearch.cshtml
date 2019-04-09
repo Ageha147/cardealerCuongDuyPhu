@@ -1,0 +1,81 @@
+﻿<div class="widget-container widget_custom_search">
+    <div class="search-heading">
+
+        <h3 class="widget-title">Tìm kiếm nhanh</h3>
+
+    </div>
+    <div class="search-entry clearfix">
+        <form action="http://xhtml.webtemplatemasters.com/" id="boxpanel" class="form-panel">
+
+            <fieldset>
+                <label>Loại:</label>
+                <select id="unknow1">
+                    <option value="0">Tất cả</option>
+                    @foreach (var item in Model)
+                    {
+                        <option value="@item.MaLoai">@item.TenHang</option>
+                    }
+
+                </select>
+            </fieldset>
+
+            <fieldset>
+                <label>Giá thấp nhất:</label>
+                <select>
+                    <option value="0">Tất cả</option>
+                    <option value="1">5000</option>
+                    <option value="2">7000</option>
+                </select>
+            </fieldset>
+
+            <fieldset>
+                <label>Giá cao nhất:</label>
+                <select>
+                    <option value="0">Tất cả</option>
+                    <option value="1">10000</option>
+                    <option value="2">20000</option>
+                </select>
+            </fieldset>
+
+            <fieldset>
+                <label>Bộ Trans:</label>
+                <select>
+                    <option value="0">Tất cả</option>
+                    <option value="1">Lorem</option>
+                    <option value="2">Ipsum</option>
+                </select>
+            </fieldset>
+
+            <fieldset>
+                <label>Dặm:</label>
+                <select>
+                    <option value="0">Tất cả</option>
+                    <option value="1">Lorem</option>
+                    <option value="2">Ipsum</option>
+                </select>
+            </fieldset>
+
+            <fieldset>
+                <label>Bảo hành</label>
+                <select>
+                    <option value="0">Tất cả</option>
+                    @foreach (var item in Model)
+                    {
+                        int i = 0;
+                        <option value="i++">@item.ThongTinBaoHanh</option>
+                    }
+
+                </select>
+            </fieldset>
+            <script>
+                function getTextList() {
+                    var c = document.getElementById("unknow1");
+                    var str = c.options[c.selectedIndex].value;
+                }
+            </script>
+
+            <button id="submitSearch" class="submit-search" type="submit">Tìm Kiếm</button>
+
+            </form><!--/ .form-panel-->
+        </div>
+    </div>

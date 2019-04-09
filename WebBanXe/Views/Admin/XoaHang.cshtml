@@ -1,0 +1,112 @@
+﻿@model WebBanXe.Models.MATHANG
+
+@{
+    ViewBag.Title = "XoaHang";
+    Layout = "~/Views/Shared/_LayoutAdminBlank.cshtml";
+}
+
+<h2>Xóa Thông Tin Mặt Hàng</h2>
+
+<h3>Bạn có muốn xóa mặt hàng này?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên Mặt Hàng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenHang)
+        </dd>
+
+        <dt>
+            Nhà Sản Xuất
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NhaSanXuat)
+        </dd>
+
+        <dt>
+            Ảnh Bìa
+        </dt>
+
+        <dd>
+            <img height="100" width="130" src="@Url.Content("~/images/temp/" + Model.AnhBia)" />
+        </dd>
+
+        <dt>
+            Số Lượng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuong)
+        </dd>
+
+        <dt>
+            Thông Tin Bảo Hành
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThongTinBaoHanh)
+        </dd>
+
+        <dt>
+            Ngày Cập Nhật
+        </dt>
+
+        <dd>
+            @string.Format("{0:dd/MM/yyyy}", Model.NgayCapNhat)
+        </dd>
+
+        <dt>
+            Tên Loại
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LOAIHANG.TenLoai)
+        </dd>
+
+        <dt>
+            Tên Thân
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LOAITHAN.TenThan)
+        </dd>
+
+        <dt>
+            Đơn Vị Tính
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DonViTinh)
+        </dd>
+
+        <dt>
+            Giá
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gia)
+        </dd>
+
+        <dt>
+            Mô Tả
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MoTa)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Trở về trang quản lý hàng", "Xe")
+        </div>
+    }
+</div>

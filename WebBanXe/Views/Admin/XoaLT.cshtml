@@ -1,0 +1,41 @@
+﻿@model WebBanXe.Models.LOAITHAN
+
+@{
+    ViewBag.Title = "XoaLT";
+    Layout = "~/Views/Shared/_LayoutAdminBlank.cshtml";
+}
+
+<h2>Xóa Thông Tin Loại Thân</h2>
+
+<h3>Bạn có muốn xóa loại than này không (***)?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Mã Thân
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaThan)
+        </dd>
+
+        <dt>
+            Tên Thân
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenThan)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Trở về trang chính", "LT")
+        </div>
+    }
+</div>

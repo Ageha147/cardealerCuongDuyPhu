@@ -1,0 +1,26 @@
+﻿<div class="widget-container widget_loan_calculator">
+
+    <div class="widget-head">
+        <h3 class="widget-title">Loại Sản Phẩm</h3>
+    </div>
+
+    <div class="entry-loan">
+
+        <form action="#" method="POST" name="myform" id="loan">
+
+            <table>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <button name="cal" class="button orange" style="height: 32px; width: 180px; text-align:center; font-size: 14px; margin-left: 43px" onclick="location.href='@Url.Action("SPTheoLoaiHang","Xe",new{ id = @item.MaLoai })'">@item.TenLoai</button>
+                        </td>
+                    </tr>
+                }
+            </table>
+
+        </form>
+
+    </div><!--/ .entry-loan-->
+
+</div>

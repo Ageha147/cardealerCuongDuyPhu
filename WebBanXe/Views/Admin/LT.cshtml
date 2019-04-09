@@ -1,0 +1,46 @@
+﻿@using WebBanXe.Models
+@using PagedList.Mvc
+@model PagedList.PagedList<WebBanXe.Models.LOAITHAN>
+@{
+    ViewBag.Title = "LT";
+    Layout = "~/Views/Shared/_LayoutAdminBlank.cshtml";
+}
+
+<h2>Danh Sách Loại Thân</h2>
+
+<p>
+    @Html.ActionLink("THÊM", "ThemLT")
+</p>
+<table class="table">
+    <tr>
+        <th style="width: 100px">
+            Mã Thân
+        </th>
+        <th style="width: 100px">
+            Tên Thân
+        </th>
+        <th>Tác Vụ (lưu ý khi xóa)</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaThan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenThan)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "SuaLT", new { id = item.MaThan }) |
+                @Html.ActionLink("Delete", "XoaLT", new { id = item.TenThan })
+            </td>
+        </tr>
+    }
+
+</table>
+
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;
+<div style="display: inline">
+    @Html.PagedListPager(Model, page => Url.Action("LT", new { page = page }))
+</div>
